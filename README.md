@@ -165,7 +165,7 @@
   - Open a [html file](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/index.html)
   - Put `script` tag before the body end tag and write JavaScript code inside `script` tag
 
-    ```js
+    ```html
     <body>
 
     <script>
@@ -178,7 +178,7 @@
   - Create [script file](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/test.js)
   - Add it before the end of `head` tag
 
-    ```js
+    ```html
     <head>
         ...
         <script src="./test.js"></script>
@@ -235,7 +235,7 @@
 
 - When adding script befor the end of body tag it will work cause DOM is properly build and runs the script
 
-  ```js
+  ```html
   <body>
   ...
     <script src="./test.js"></script>
@@ -250,7 +250,7 @@
 
 - Now let's solve the problem by adding it back to the head and add `async` attribute
 
-  ```js
+  ```html
   <head>
     ...
     <script src="./test.js" async></script>
@@ -269,7 +269,7 @@
 
 - Now let's solve the problem by adding it back to the head and add `defer` attribute
 
-  ```js
+  ```html
   <head>
     ...
     <script src="./test.js" defer></script>
