@@ -344,9 +344,12 @@
   - Created a [script.js](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2003/script.js)
   - Add it in `<head>` of [index.html](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2003/index.html)
   - Used `async` and `defer` and notice that `document.write()` is showing error
-    > [!CAUTION]
-    > - script.js:2 Failed to execute 'write' on 'Document': It isn't possible to write into a document from an asynchronously-loaded external script unless it is explicitly opened.
-  - Also found that `defer` hold the execution of JS till DOM is build but `async` interrupt the DOM build and execute the JS which is shown in the diagram mentioned in [Problem with including the script in the head tag](#problem-with-including-the-script-in-the-head-tag)
+
+> [!CAUTION]
+>
+> - script.js:2 Failed to execute 'write' on 'Document': It isn't possible to write into a document from an asynchronously-loaded external script unless it is explicitly opened.
+
+- Also found that `defer` hold the execution of JS till DOM is build but `async` interrupt the DOM build and execute the JS which is shown in the diagram mentioned in [Problem with including the script in the head tag](#problem-with-including-the-script-in-the-head-tag)
 
 [⬆️ Go to Context](#context)
 
