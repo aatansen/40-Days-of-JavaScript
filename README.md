@@ -16,6 +16,11 @@
     - [The async attribute](#the-async-attribute)
     - [The defer attribute](#the-defer-attribute)
     - [Running JavaScript on the Server side](#running-javascript-on-the-server-side)
+    - [**Day 01 Tasks**](#day-01-tasks)
+      - [Task 01: Setting Up Your Environment](#task-01-setting-up-your-environment)
+      - [Task 02: Write Your First JavaScript Code](#task-02-write-your-first-javascript-code)
+      - [Task 03: Experiment with Different JavaScript Loading Methods](#task-03-experiment-with-different-javascript-loading-methods)
+      - [Task 04: Take Notes and Submit](#task-04-take-notes-and-submit)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -287,5 +292,67 @@
   ```sh
   node test.js
   ```
+
+[⬆️ Go to Context](#context)
+
+### **Day 01 Tasks**
+
+#### Task 01: Setting Up Your Environment
+
+- [x] Install VS Code (if not installed).
+- [x] Set up Live Server or open the HTML file directly in a browser.
+- [x] Open the DevTools Console (Right-click → Inspect → Console).
+
+[⬆️ Go to Context](#context)
+
+#### Task 02: Write Your First JavaScript Code
+
+- Create a new file: `index.html`.
+- Add a `<script>` tag inside the HTML file or link an external `script.js`.
+- Inside `script.js`, write a simple greeting program:
+
+  ```js
+  console.log("Hello, tapaScript!");
+  console.log("Welcome to 40 Days of JavaScript!");
+  document.write("Check the browser console for a message!");
+  ```
+
+- Run the HTML file in the browser and check:
+  - The console log prints the text.
+  - The `document.write()` outputs text on the webpage.
+
+---
+
+- Task 02 Solution
+  - Created [index.html](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2002/index.html)
+  - Added script tag in [HTML file](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2002/index.html)
+  - Run the HTML file in browser using live server extension
+    - Console log properly showing
+    - `document.write()` outputs text on the webpage is properly showing
+
+[⬆️ Go to Context](#context)
+
+#### Task 03: Experiment with Different JavaScript Loading Methods
+
+- Add the script in `<head>`, end of the `<body>` tag.
+- Use `async` and `defer` attributes
+- Understand the difefrences.
+
+---
+
+- Task 03 Solution
+  - Created a [script.js](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2003/script.js)
+  - Add it in `<head>` of [index.html](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/Task%2003/index.html)
+  - Used `async` and `defer` and notice that `document.write()` is showing error
+    > [!CAUTION]
+    > - script.js:2 Failed to execute 'write' on 'Document': It isn't possible to write into a document from an asynchronously-loaded external script unless it is explicitly opened.
+  - Also found that `defer` hold the execution of JS till DOM is build but `async` interrupt the DOM build and execute the JS which is shown in the diagram mentioned in [Problem with including the script in the head tag](#problem-with-including-the-script-in-the-head-tag)
+
+[⬆️ Go to Context](#context)
+
+#### Task 04: Take Notes and Submit
+
+- [x] Note down done
+- [x] Shared the progress on discord
 
 [⬆️ Go to Context](#context)
