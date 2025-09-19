@@ -167,7 +167,7 @@
   ```
 
 - Run the Code in VsCode
-  - Open a [html file](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/index.html)
+  - Open a [html file](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/first.html)
   - Put `script` tag before the body end tag and write JavaScript code inside `script` tag
 
     ```html
