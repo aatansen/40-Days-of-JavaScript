@@ -21,6 +21,16 @@
       - [Task 02: Write Your First JavaScript Code](#task-02-write-your-first-javascript-code)
       - [Task 03: Experiment with Different JavaScript Loading Methods](#task-03-experiment-with-different-javascript-loading-methods)
       - [Task 04: Take Notes and Submit](#task-04-take-notes-and-submit)
+  - [**Day 02 - Variables and Data Types in JavaScript**](#day-02---variables-and-data-types-in-javascript)
+    - [What are variables?](#what-are-variables)
+      - [Value Assignments](#value-assignments)
+    - [Naming Convention](#naming-convention)
+      - [Variable Name Standards](#variable-name-standards)
+    - [Comments](#comments)
+    - [let var const](#let-var-const)
+    - [Data Types](#data-types)
+      - [`undefined` vs `null`](#undefined-vs-null)
+      - [Pass by Value \& Pass by Reference](#pass-by-value--pass-by-reference)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -357,5 +367,221 @@
 
 - [x] Note down done
 - [x] Shared the progress on discord
+
+[⬆️ Go to Context](#context)
+
+## **Day 02 - Variables and Data Types in JavaScript**
+
+### What are variables?
+
+- Variables are used to store data in JavaScript
+- Variables are like a box that hold some information
+- For example when we write someone / friend address on a paper in here paper is the variable and the address is the value
+
+  ![Variable](https://i.imgur.com/mWBq5f3.png)
+
+  ```js
+  let/const/var storage_name = value;
+
+  let fruit = "mango";
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Value Assignments
+
+- When we use `let` we can re-assign value
+
+  ```js
+  // value re-assign
+  let fruit="mango"
+  fruit="kiwi"
+  console.log(fruit);
+  ```
+
+[⬆️ Go to Context](#context)
+
+### Naming Convention
+
+- The name must have digits(0-9) or letters.
+- The name can have `$` and `_`
+- The first character must not be a digit.
+- No Reserved Keywords
+
+  ```js
+  // Naming Convention
+  let $ = "doller"
+  console.log($);
+  let _ ="underscore";
+  console.log(_);
+
+  // not valid name convention
+  // let 2morrow;
+  // let react-play;
+
+  // Case sensitive
+  let myName;
+  let MyName;
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Variable Name Standards
+
+- Use camelCase.
+- Human Readable.
+- The name should match the
+cause.
+
+[⬆️ Go to Context](#context)
+
+### Comments
+
+- Single line comment `//`
+
+  ```js
+  // this is single line comment
+  ```
+
+- Multi line comment `/* ... */`
+
+  ```js
+  /*
+  this
+  is
+  multi
+  line
+  comment
+  */
+  ```
+
+[⬆️ Go to Context](#context)
+
+### let var const
+
+- `var`: Function-scoped, can be redeclared (not recommended)
+- `let`: Block-scoped, can be reassigned
+- `const`: Block-scoped, **cannot** be reassigned
+- Problem with `var`
+
+  ```js
+  // let var const
+  var address = "Dhaka"
+  console.log(address);
+
+  var address = "USA"
+  console.log(address);
+  ```
+
+  - Here `address` is being re-declare without any issue which is a problem
+
+> [!NOTE]
+>
+> - A variable declare should be done once
+> - Re-assign the same variable as much as needed
+> - Using `var` is not recommended due to being functional scope and re-declare variable issue
+
+[⬆️ Go to Context](#context)
+
+### Data Types
+
+- Primitive (immutable, stored by value)
+  - Number – integers, floats, NaN, Infinity
+    - *Example*: `let age = 25; let pi = 3.14; let notANumber = NaN;`
+  - String – text enclosed in quotes
+    - *Example*: `let greeting = "Hello";`
+  - Boolean – `true or false`
+    - *Example*: `let isLoggedIn = true;`
+  - Null – intentional empty value
+    - *Example*: `let emptyValue = null;`
+  - Undefined – variable declared but not assigned
+    - *Example*: `let x; // undefined`
+  - Symbol – unique and immutable identifier
+    - *Example*: `let id = Symbol("uniqueId");`
+  - BigInt – large integers beyond Number.MAX_SAFE_INTEGER
+    - *Example*: `let big = 123456789012345678901234567890n;`
+
+- Non-Primitive (reference types, stored by reference)
+  - Object
+    - Plain objects ({}) – Key-value pairs of data
+
+      Example:
+      `const user = { username: "alex", age: 25 };`
+
+    - Arrays ([]) – Ordered list of values
+
+      Example:
+      `const numbers = [1, 2, 3];`
+
+    - Functions – Blocks of code that can be called
+
+      Example:
+      `function greet() { console.log("Hello!"); }`
+
+    - Dates (new Date()) – Represent date and time
+
+      Example:
+      `const today = new Date();`
+
+    - Regular Expressions (/pattern/) – Patterns to match text
+
+      Example:
+      `const regex = /hello/i;`
+
+    - Maps (new Map()) – Store key-value pairs with any type of key
+
+      Example:
+
+      ```js
+      const map = new Map();
+      map.set("a", 1);
+      ```
+
+    - Sets (new Set()) – Store unique values
+
+      Example:
+      `const set = new Set([1, 2, 2, 3]);`
+
+    - WeakMap / WeakSet – Store objects as keys or values, allow garbage collection
+
+      Example:
+
+      ```js
+      const weakMap = new WeakMap();
+      const obj = {};
+      weakMap.set(obj, "value");
+      ```
+
+[⬆️ Go to Context](#context)
+
+#### `undefined` vs `null`
+
+| Aspect             | `undefined`                       | `null`                 |
+| ------------------ | --------------------------------- | ---------------------- |
+| Default or manual? | Default for uninitialized vars    | Manually assigned      |
+| Type               | `undefined`                       | `object`               |
+| Meaning            | Variable not yet assigned a value | Intentional “no value” |
+| Checked by         | `typeof value === "undefined"`    | `value === null`       |
+
+#### Pass by Value & Pass by Reference
+
+- Pass by Value
+  - Applies to **Primitive** types (Number, String, Boolean, Null, Undefined, Symbol, BigInt)
+  - A copy of the value is passed to the variable or function
+  - Changing the new variable does **not** affect the original value
+
+- Pass by Reference
+  - Applies to **Non-Primitive** types (Objects, Arrays, Functions, etc.)
+  - A reference (memory address) is passed, not the actual value
+  - Changes made through the new variable affect the original object
+
+  ```js
+  // Pass by Value  (Primitive)
+  let fruit2 = "mango"
+  let vegetable = "carrots"
+  fruit2 = vegetable
+  fruit2 = "banana"
+  console.log(vegetable);
+  ```
 
 [⬆️ Go to Context](#context)
