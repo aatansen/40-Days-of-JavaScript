@@ -31,6 +31,13 @@
     - [Data Types](#data-types)
       - [`undefined` vs `null`](#undefined-vs-null)
       - [Pass by Value \& Pass by Reference](#pass-by-value--pass-by-reference)
+    - [Variables in Memory](#variables-in-memory)
+    - [How JavaScript See Code?](#how-javascript-see-code)
+    - [**Day 02 Tasks**](#day-02-tasks)
+      - [Task 01: Declare variables for a person’s name, age, isStudent status, and favorite programming language](#task-01-declare-variables-for-a-persons-name-age-isstudent-status-and-favorite-programming-language)
+      - [Task 02: Print the values to the console](#task-02-print-the-values-to-the-console)
+      - [Task 03: Try reassigning values to let and const variables and observe errors](#task-03-try-reassigning-values-to-let-and-const-variables-and-observe-errors)
+      - [Task 04: Create an object and an array, assign them to new variables, modify, and observe changes](#task-04-create-an-object-and-an-array-assign-them-to-new-variables-modify-and-observe-changes)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -583,5 +590,155 @@ cause.
   fruit2 = "banana"
   console.log(vegetable);
   ```
+
+[⬆️ Go to Context](#context)
+
+### Variables in Memory
+
+- Stack
+  - A region of memory that stores temporary data such as primitive values and function call information. It works in a Last In, First Out (LIFO) order.
+  - Stores primitive data types (Number, String, Boolean, Null, Undefined, Symbol, BigInt)
+  - Stores function call frames (execution context)
+  - Data stored by value
+  - Memory is managed automatically (Last In, First Out - LIFO)
+  - Faster access
+
+- Heap
+  - A region of memory used for storing objects and reference types. Unlike the stack, the heap does not follow a strict order; memory is allocated dynamically as needed.
+  - Stores non-primitive (reference) data types (Objects, Arrays, Functions, Dates, RegExp, etc.)
+  - Data stored by reference (the variable holds a reference to the memory location)
+  - Memory is dynamically allocated
+  - More flexible but slower access compared to stack
+
+[⬆️ Go to Context](#context)
+
+### How JavaScript See Code?
+
+- Tokenizing (Lexical Analysis)
+- Parsing (Syntactic Analysis)
+- Compilation (Intermediate Step)
+- Execution (Interpreting / Code Execution)
+
+This is how it work
+
+  ```mermaid
+  flowchart LR
+      A["📝 Source Code &#xA <code>let x = 5; &#xA console.log(x);</code>"] --> B["🔍 Tokenizing<br/>(Lexical Analysis)"]
+      
+      B --> C["📋 Tokens &#xA <code>let, x, =, 5, ;, console, ., log, (, x, ), ;</code>"]
+      
+      C --> D["🌳 Parsing &#xA (Syntactic Analysis)"]
+
+      D --> E["🌲 Abstract Syntax Tree (AST) &#xA Tree structure representing &#xA code syntax and relationships"]
+      
+      E --> F["⚙️ Compilation &#xA (Intermediate Step)"]
+
+      F --> G["💻 Bytecode/Optimized Code &#xA Machine-readable instructions &#xA for JavaScript Engine"]
+
+      G --> H["▶️ Execution &#xA (Interpreting / Code Execution)"]
+      
+      H --> I["✅ Output &#xA <code>5</code>"]
+      
+      %% Styling
+      classDef sourceCode fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+      classDef tokenizing fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+      classDef parsing fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+      classDef compilation fill:#fff3e0,stroke:#e65100,stroke-width:2px
+      classDef execution fill:#ffebee,stroke:#c62828,stroke-width:2px
+
+      class A sourceCode
+      class B,C tokenizing
+      class D,E parsing
+      class F,G compilation
+      class H,I execution
+  ```
+
+![How JS work](https://i.imgur.com/g41oecg.png)
+
+- We can see the AST of a code on this site [astexplorer](https://astexplorer.net/)
+
+[⬆️ Go to Context](#context)
+
+### **Day 02 Tasks**
+
+#### Task 01: Declare variables for a person’s name, age, isStudent status, and favorite programming language
+
+---
+
+- Task 01 Solution
+
+  ```js
+  // Task 01: Declare variables for a person’s name, age, isStudent status, and favorite programming language
+  let name = "Tansen"
+  const age = 24
+  let isStudent = true
+  let favProgLang = "Python"
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 02: Print the values to the console
+
+---
+
+- Task 02 Solution
+
+  ```js
+  // Task 02: Print the values to the console.
+  console.log(`My name is ${name}. I am ${age} years old. My student status is ${isStudent}. My favourite programming language is ${favProgLang}.`);
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 03: Try reassigning values to let and const variables and observe errors
+
+---
+
+- Task 03 Solution
+
+  ```js
+  // Task 03: Try reassigning values to let and const variables and observe errors.
+  name = "Shakil"
+  age = 25
+  console.log(`Name: ${name}\nAge: ${age}`);
+  ```
+
+  - Here age is `const` so changing it causing error `Uncaught TypeError: Assignment to constant variable.`
+
+[⬆️ Go to Context](#context)
+
+#### Task 04: Create an object and an array, assign them to new variables, modify, and observe changes
+
+---
+
+- Task 04 Solution
+
+  ```js
+  // Task 04: Create an object and an array, assign them to new variables, modify, and observe changes.
+
+  // Person object
+  let Person = {
+      name : "Rakib",
+      age : 22
+  }
+
+  // array
+  let arr = [1,2,3,4,5]
+
+  // assigning to new variable
+  let Person2 = Person
+  let arr2 = arr
+
+  // changing newly assign ones
+  Person2["name"] = "Shakib"
+  arr2[0] = 6
+
+  // printing initial Person and arr values
+  console.log(Person["name"]);
+  console.log(arr[0]);
+  ```
+
+  - At the end Person and arr is printed which is changed but we changed Person2, arr2
+  - Reason for this is Pass by Reference for Non-Primitive data type object and array
 
 [⬆️ Go to Context](#context)
