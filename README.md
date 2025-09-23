@@ -623,34 +623,26 @@ This is how it work
 
   ```mermaid
   flowchart LR
-      A["📝 Source Code &#xA <code>let x = 5; &#xA console.log(x);</code>"] --> B["🔍 Tokenizing<br/>(Lexical Analysis)"]
-      
-      B --> C["📋 Tokens &#xA <code>let, x, =, 5, ;, console, ., log, (, x, ), ;</code>"]
-      
-      C --> D["🌳 Parsing &#xA (Syntactic Analysis)"]
+    A["📝 Source Code &#xA <span style='color:#000'>let x = 5; &#xA console.log(x);</span>"] --> B["🔍 Tokenizing &#xA (Lexical Analysis)"]
+    B --> C["📋 Tokens &#xA <span style='color:#000'>let, x, =, 5, ;, console, ., log, (, x, ), ;</span>"]
+    C --> D["🌳 Parsing &#xA (Syntactic Analysis)"]
+    D --> E["🌲 Abstract Syntax Tree (AST) &#xA <span style='color:#000'>Tree structure representing code syntax and relationships</span>"]
+    E --> F["⚙️ Compilation &#xA (Intermediate Step)"]
+    F --> G["💻 Bytecode/Optimized Code &#xA <span style='color:#000'>Machine-readable instructions for the JS engine</span>"]
+    G --> H["▶️ Execution &#xA (Interpreting / Code Execution)"]
+    H --> I["✅ Output &#xA <span style='color:#000'>5</span>"]
 
-      D --> E["🌲 Abstract Syntax Tree (AST) &#xA Tree structure representing &#xA code syntax and relationships"]
-      
-      E --> F["⚙️ Compilation &#xA (Intermediate Step)"]
+    classDef sourceCode fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef tokenizing fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef parsing fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000
+    classDef compilation fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+    classDef execution fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000
 
-      F --> G["💻 Bytecode/Optimized Code &#xA Machine-readable instructions &#xA for JavaScript Engine"]
-
-      G --> H["▶️ Execution &#xA (Interpreting / Code Execution)"]
-      
-      H --> I["✅ Output &#xA <code>5</code>"]
-      
-      %% Styling
-      classDef sourceCode fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-      classDef tokenizing fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-      classDef parsing fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-      classDef compilation fill:#fff3e0,stroke:#e65100,stroke-width:2px
-      classDef execution fill:#ffebee,stroke:#c62828,stroke-width:2px
-
-      class A sourceCode
-      class B,C tokenizing
-      class D,E parsing
-      class F,G compilation
-      class H,I execution
+    class A sourceCode
+    class B,C tokenizing
+    class D,E parsing
+    class F,G compilation
+    class H,I execution
   ```
 
 ![How JS work](https://i.imgur.com/g41oecg.png)
