@@ -312,7 +312,7 @@
 
 [⬆️ Go to Context](#context)
 
-### **Day 01 Tasks**
+### [**Day 01 Tasks**](./Day%2001%20-%20Introduction%20to%20JavaScript%20&%20Setting%20Up%20Environments/)
 
 #### Task 01: Setting Up Your Environment
 
@@ -651,7 +651,7 @@ This is how it work
 
 [⬆️ Go to Context](#context)
 
-### **Day 02 Tasks**
+### [**Day 02 Tasks**](./Day%2002%20-%20Variables%20and%20Data%20Types%20in%20JavaScript/Tasks/)
 
 #### Task 01: Declare variables for a person’s name, age, isStudent status, and favorite programming language
 
