@@ -38,6 +38,8 @@
       - [Task 02: Print the values to the console](#task-02-print-the-values-to-the-console)
       - [Task 03: Try reassigning values to let and const variables and observe errors](#task-03-try-reassigning-values-to-let-and-const-variables-and-observe-errors)
       - [Task 04: Create an object and an array, assign them to new variables, modify, and observe changes](#task-04-create-an-object-and-an-array-assign-them-to-new-variables-modify-and-observe-changes)
+  - [**Day 03 - MASTER Operators \& Expressions in JavaScript**](#day-03---master-operators--expressions-in-javascript)
+    - [Operands, Operators, Expressions](#operands-operators-expressions)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -732,5 +734,15 @@ This is how it work
 
   - At the end Person and arr is printed which is changed but we changed Person2, arr2
   - Reason for this is Pass by Reference for Non-Primitive data type object and array
+
+[⬆️ Go to Context](#context)
+
+## **Day 03 - MASTER Operators & Expressions in JavaScript**
+
+### Operands, Operators, Expressions
+
+- **Operator** - In programming operators are nothing but some symbols that you apply on something to carry out a calculation (`+ ,-,/,%`)
+- **Operands** - operands are this symbol should be applied on something these are the actual value on which your operator works on (`x+y` Here x,y are operands)
+- **Expresion** - Expression is something which resolve to a value it means that his final output will be one value (`x=4+5`)
 
 [⬆️ Go to Context](#context)
