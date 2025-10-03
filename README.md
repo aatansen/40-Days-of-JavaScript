@@ -40,6 +40,9 @@
       - [Task 04: Create an object and an array, assign them to new variables, modify, and observe changes](#task-04-create-an-object-and-an-array-assign-them-to-new-variables-modify-and-observe-changes)
   - [**Day 03 - MASTER Operators \& Expressions in JavaScript**](#day-03---master-operators--expressions-in-javascript)
     - [Operands, Operators, Expressions](#operands-operators-expressions)
+    - [Different Types of Operators](#different-types-of-operators)
+      - [Arithmetic Operators](#arithmetic-operators)
+    - [String Concatenation Note](#string-concatenation-note)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -744,5 +747,65 @@ This is how it work
 - **Operator** - In programming operators are nothing but some symbols that you apply on something to carry out a calculation (`+ ,-,/,%`)
 - **Operands** - operands are this symbol should be applied on something these are the actual value on which your operator works on (`x+y` Here x,y are operands)
 - **Expresion** - Expression is something which resolve to a value it means that his final output will be one value (`x=4+5`)
+
+[⬆️ Go to Context](#context)
+
+### Different Types of Operators
+
+- **Arithmetic Operators**
+  - `+ , - , * , / , % , ** , ++ , --`
+- **Assignment Operators**
+  - `= , += , -= , *= , /= , %= , **=`
+- **Comparison (Relational) Operators**
+  - `== , === , != , !== , > , < , >= , <= , ? :`
+- **Logical Operators**
+  - `&& , || , !`
+- **Bitwise Operators**
+  - `& , | , ^ , ~ , << , >> , >>>`
+- **String Operators**
+  - `+ , +=`  (used for concatenation)
+- **Conditional (Ternary) Operator**
+  - `condition ? valueIfTrue : valueIfFalse`
+- **Comma Operator**
+  - `,` (evaluates multiple expressions, returns last)
+- **Type Operators**
+  - `typeof`
+  - `instanceof`
+  - `in` (checks if a property exists in object)
+  - `delete` (removes property from object)
+  - `void` (evaluates expression but returns `undefined`)
+- **Spread and Rest Operators**
+  - `...` (spread for arrays/objects, rest for parameters)
+- **Optional Chaining Operator**
+  - `?.`
+- **Nullish Coalescing Operator**
+  - `??`
+- **Grouping Operator**
+  - `( )` (used to control precedence)
+
+[⬆️ Go to Context](#context)
+
+#### Arithmetic Operators
+
+- Post-Increment vs Pre-Increment
+
+  ```js
+  let count=5
+  console.log(count++); // Post-Increment
+  console.log(count);
+  console.log(++count); // Pre-Increment
+  ```
+
+  - Here `Post-Increment` returns the current value first, then increases it by 1.
+  - And `Pre-Increment` increases the value first, then returns it.
+
+[⬆️ Go to Context](#context)
+
+### String Concatenation Note
+
+> [!NOTE]
+>
+> - `f_name + " " + l_name` string concat using `'+'` is not recommended
+> - Template literals are recommended `${f_name} ${l_name}`
 
 [⬆️ Go to Context](#context)
