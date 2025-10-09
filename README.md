@@ -1036,7 +1036,7 @@ It returns a **string** indicating the type.
 
 [⬆️ Go to Context](#context)
 
-### **Day 03 Tasks**
+### [**Day 03 Tasks**](./Day%2003%20-%20MASTER%20Operators%20&%20Expressions%20in%20JavaScript/Tasks/)
 
 #### Task 01 - Odd or Even?
 
