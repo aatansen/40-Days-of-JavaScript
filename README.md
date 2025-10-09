@@ -40,9 +40,26 @@
       - [Task 04: Create an object and an array, assign them to new variables, modify, and observe changes](#task-04-create-an-object-and-an-array-assign-them-to-new-variables-modify-and-observe-changes)
   - [**Day 03 - MASTER Operators \& Expressions in JavaScript**](#day-03---master-operators--expressions-in-javascript)
     - [Operands, Operators, Expressions](#operands-operators-expressions)
+    - [String Concatenation Note](#string-concatenation-note)
     - [Different Types of Operators](#different-types-of-operators)
       - [Arithmetic Operators](#arithmetic-operators)
-    - [String Concatenation Note](#string-concatenation-note)
+      - [Assignment Operators](#assignment-operators)
+      - [Comparison Operators](#comparison-operators)
+      - [Logical Operators](#logical-operators)
+      - [The Nullish Coalescing Operator](#the-nullish-coalescing-operator)
+      - [Conditional (ternary) operator](#conditional-ternary-operator)
+      - [Bitwise Operators](#bitwise-operators)
+      - [Grouping and Operator Precedence](#grouping-and-operator-precedence)
+      - [typeof Operator](#typeof-operator)
+    - [**Day 03 Tasks**](#day-03-tasks)
+      - [Task 01 - Odd or Even?](#task-01---odd-or-even)
+      - [Task 02 - Do you have a Driving License?](#task-02---do-you-have-a-driving-license)
+      - [Task 03 - Calculate CTC with a Bonus](#task-03---calculate-ctc-with-a-bonus)
+      - [Task 04 - Write a program for the Traffic Light Simulation](#task-04---write-a-program-for-the-traffic-light-simulation)
+      - [Task 05 - Create an Electricity Bill Calculator](#task-05---create-an-electricity-bill-calculator)
+      - [Task 06 - Leap Year Checker](#task-06---leap-year-checker)
+      - [Task 07 - Max of Three Numbers](#task-07---max-of-three-numbers)
+      - [Task 08 - Bitwise Doubling](#task-08---bitwise-doubling)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -750,6 +767,15 @@ This is how it work
 
 [⬆️ Go to Context](#context)
 
+### String Concatenation Note
+
+> [!NOTE]
+>
+> - `f_name + " " + l_name` string concat using `'+'` is not recommended
+> - Template literals are recommended `${f_name} ${l_name}`
+
+[⬆️ Go to Context](#context)
+
 ### Different Types of Operators
 
 - **Arithmetic Operators**
@@ -801,11 +827,383 @@ This is how it work
 
 [⬆️ Go to Context](#context)
 
-### String Concatenation Note
+#### Assignment Operators
 
-> [!NOTE]
->
-> - `f_name + " " + l_name` string concat using `'+'` is not recommended
-> - Template literals are recommended `${f_name} ${l_name}`
+Assignment operators are used to assign values to variables.
+
+- Basic Assignment
+
+  | Operator | Example | Meaning                          | Equivalent To |
+  | -------- | ------- | -------------------------------- | ------------- |
+  | `=`      | `x = y` | Assigns the value of `y` to `x`. | —             |
+
+- Compound Assignment Operators
+
+  | Operator | Example   | Meaning                                 | Equivalent To |
+  | -------- | --------- | --------------------------------------- | ------------- |
+  | `+=`     | `x += y`  | Adds `y` to `x`                         | `x = x + y`   |
+  | `-=`     | `x -= y`  | Subtracts `y` from `x`                  | `x = x - y`   |
+  | `*=`     | `x *= y`  | Multiplies `x` by `y`                   | `x = x * y`   |
+  | `/=`     | `x /= y`  | Divides `x` by `y`                      | `x = x / y`   |
+  | `%=`     | `x %= y`  | Assigns the remainder of `x / y` to `x` | `x = x % y`   |
+  | `**=`    | `x **= y` | Raises `x` to the power of `y`          | `x = x ** y`  |
+
+- Bitwise Assignment Operators
+
+  | Operator | Example    | Meaning                        | Equivalent To |
+  | -------- | ---------- | ------------------------------ | ------------- |
+  | `&=`     | `x &= y`   | Bitwise AND                    | `x = x & y`   |
+  | `\|=`    | `x \|= y`  | Bitwise OR                     | `x = x \| y`  |
+  | `^=`     | `x ^= y`   | Bitwise XOR                    | `x = x ^ y`   |
+  | `<<=`    | `x <<= y`  | Left shift                     | `x = x << y`  |
+  | `>>=`    | `x >>= y`  | Right shift (sign-propagating) | `x = x >> y`  |
+  | `>>>=`   | `x >>>= y` | Unsigned right shift           | `x = x >>> y` |
+
+[⬆️ Go to Context](#context)
+
+#### Comparison Operators
+
+Comparison operators are used to **compare two values**.
+They return a **Boolean** (`true` or `false`) result depending on whether the comparison is true.
+
+- Basic Comparison Operators
+
+  | Operator | Example   | Meaning                                          | Returns                                     |
+  | -------- | --------- | ------------------------------------------------ | ------------------------------------------- |
+  | `==`     | `x == y`  | Equal to (compares **values**, not types)        | `true` if values are equal                  |
+  | `===`    | `x === y` | **Strict equal** (compares **values and types**) | `true` if both value and type are equal     |
+  | `!=`     | `x != y`  | Not equal to (compares **values**)               | `true` if values are not equal              |
+  | `!==`    | `x !== y` | **Strict not equal** (values or types differ)    | `true` if either value or type is not equal |
+
+- Relational Operators
+
+  | Operator | Example  | Meaning                  | Returns                                       |
+  | -------- | -------- | ------------------------ | --------------------------------------------- |
+  | `>`      | `x > y`  | Greater than             | `true` if `x` is greater than `y`             |
+  | `<`      | `x < y`  | Less than                | `true` if `x` is less than `y`                |
+  | `>=`     | `x >= y` | Greater than or equal to | `true` if `x` is greater than or equal to `y` |
+  | `<=`     | `x <= y` | Less than or equal to    | `true` if `x` is less than or equal to `y`    |
+
+- Object Comparison in JavaScript
+
+  ```js
+  // Different memory address
+  let obj1 = { 'name': 'tansen' } // XX0011
+  let obj2 = { 'name': 'tansen' } // YY0022
+
+  console.log(obj1 === obj2); // false → different memory references
+  console.log(obj1 !== obj2); // true  → not the same object
+  ```
+
+  - `===` compares **object references**, not their contents.
+  - Even if two objects look identical, they are stored at **different addresses in memory**.
+
+[⬆️ Go to Context](#context)
+
+#### Logical Operators
+
+Logical operators are used to combine or manipulate **Boolean (true/false)** values.
+They are commonly used in **conditions**, **control flow**, and **short-circuit evaluation**.
+
+- Basic Logical Operators
+
+  | Operator | Example    | Meaning                                               | Returns                                |
+  | -------- | ---------- | ----------------------------------------------------- | -------------------------------------- |
+  | `&&`     | `x && y`   | **Logical AND** — true if *both* `x` and `y` are true | `true` if both operands are true       |
+  | `\|\|`   | `x \|\| y` | **Logical OR** — true if *either* `x` or `y` is true  | `true` if at least one operand is true |
+  | `!`      | `!x`       | **Logical NOT** — reverses Boolean value              | `true` if `x` is false                 |
+
+- Cow and Horse example
+
+  ```js
+  console.log("Cow" && "Horse"); // "Horse"
+  ```
+
+  - The `&&` operator evaluates **from left to right**.
+  - It stops when it finds a **falsy** value.
+  - If all operands are **truthy**, it returns the **last evaluated operand**.
+
+1. `"Cow"` → truthy ✅
+2. `"Horse"` → truthy ✅
+3. Since both are truthy, the expression returns the **last value**, `"Horse"`.
+
+- More odd example to understand
+
+  ```js
+  console.log(0 && "Horse");      // 0        → stops early (0 is falsy)
+  console.log("Cow" && "");       // ""       → second operand falsy
+  console.log("Cow" && "Horse");  // "Horse"  → both truthy, returns last
+  console.log("Cow" && null);     // null     → returns first falsy (null)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### The Nullish Coalescing Operator
+
+- The `??` operator was introduced in **ES2020**, and it’s **not** a basic logical operator.
+- It belongs to the **Nullish Coalescing family**, often discussed *alongside* logical operators   because it behaves somewhat like `||` — but with one key difference.
+
+`x ?? y` → Returns `x` **if it is not `null` or `undefined`**, otherwise returns `y`.
+
+[⬆️ Go to Context](#context)
+
+#### Conditional (ternary) operator
+
+The **conditional (ternary) operator** is a **short-hand for `if...else`**.
+It takes **three operands**: a condition, an expression to return if true, and an expression to return if false.
+
+  ```js
+  condition ? expressionIfTrue : expressionIfFalse
+  ```
+
+- `condition` → a Boolean expression (`true` or `false`)
+- `expressionIfTrue` → returned if `condition` is `true`
+- `expressionIfFalse` → returned if `condition` is `false`
+
+```js
+let age = 23;
+console.log(age >= 60 ? "Senior Citizen" : "Non Senior Citizen");
+```
+
+[⬆️ Go to Context](#context)
+
+#### Bitwise Operators
+
+Bitwise operators work on the **binary representation** of integers.
+They perform operations on **individual bits** of numbers.
+
+- Basic Bitwise Operators
+
+  | Operator | Example   | Meaning                        | Explanation                                               |
+  | -------- | --------- | ------------------------------ | --------------------------------------------------------- |
+  | `&`      | `x & y`   | AND                            | Sets each bit to `1` if **both bits** are `1`             |
+  | `\|`     | `x \| y`  | OR                             | Sets each bit to `1` if **either bit** is `1`             |
+  | `^`      | `x ^ y`   | XOR (Exclusive OR)             | Sets each bit to `1` if **bits are different**            |
+  | `~`      | `~x`      | NOT (Bitwise complement)       | Inverts all bits (`0 → 1`, `1 → 0`)                       |
+  | `<<`     | `x << y`  | Left shift                     | Shifts bits of `x` left by `y` positions, fills with `0`  |
+  | `>>`     | `x >> y`  | Right shift (sign-propagating) | Shifts bits of `x` right by `y` positions, preserves sign |
+  | `>>>`    | `x >>> y` | Unsigned right shift           | Shifts bits right by `y` positions, fills with `0`        |
+
+[⬆️ Go to Context](#context)
+
+#### Grouping and Operator Precedence
+
+**Operator precedence** determines the **order in which operators are evaluated** in an expression.
+**Grouping parentheses `()`** can be used to **override the default precedence**.
+
+- Operator Precedence
+
+  ```js
+  let result = 2 + 3 * 4;
+  console.log(result); // 14 → multiplication (*) has higher precedence than addition (+)
+  ```
+
+- Using Grouping Parentheses
+
+  ```js
+  let result = (2 + 3) * 4;
+  console.log(result); // 20 → parentheses change evaluation order
+  ```
+
+- Key Points
+  - **Parentheses `()`** → Highest precedence, evaluated first
+  - **Unary operators** (`!`, `++`, `--`, `+`, `-`) → Next highest
+  - **Multiplication `*`, Division `/`, Modulus `%`** → Higher than addition/subtraction
+  - **Addition `+`, Subtraction `-`** → Evaluated after `*`, `/`, `%`
+  - **Comparison operators** (`<`, `>`, `<=`, `>=`) → Lower precedence
+  - **Equality operators** (`==`, `===`, `!=`, `!==`) → Lower than comparison
+  - **Logical AND `&&`** → Lower than equality
+  - **Logical OR `||`** → Lower than AND
+  - **Assignment operators** (`=`, `+=`, `-=`...) → Lowest precedence (evaluated last)
+
+[⬆️ Go to Context](#context)
+
+#### typeof Operator
+
+The `typeof` operator is used to **determine the type of a value** in JavaScript.
+It returns a **string** indicating the type.
+
+  ```js
+  console.log(typeof 42);            // "number"
+  console.log(typeof "Hello");       // "string"
+  console.log(typeof true);          // "boolean"
+  console.log(typeof undefined);     // "undefined"
+  console.log(typeof {name: "Tansen"}); // "object"
+  console.log(typeof [1, 2, 3]);    // "object" → arrays are objects
+  console.log(typeof null);          // "object" → historical JavaScript quirk
+  console.log(typeof function(){});  // "function"
+  ```
+
+[⬆️ Go to Context](#context)
+
+### **Day 03 Tasks**
+
+#### Task 01 - Odd or Even?
+
+- Take a number and find if the number is an odd or even number.
+- Print the number and result in the console.
+
+---
+
+- Task 01 Solution
+
+  ```js
+  let num1=3
+  if(num1%2==0){
+      console.log(`Number ${num1} is even number`);
+  }else{
+  console.log(`Number ${num1} is odd number`);
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 02 - Do you have a Driving License?
+
+- Let's check if you are eligible to get a driving license. The eligibility to get a driving license is 18 years.
+  - Manage age as a variable.
+  - Check if the age is eligible for a driving license and print it on the console accordingly.
+
+---
+
+- Task 02 Solution
+
+  ```js
+  let age=18
+  if(age>=18){
+      console.log(`Age ${age} is eligible for a driving license`);
+  }else{
+      console.log(`Age ${age} is not eligible for a driving license`);
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 03 - Calculate CTC with a Bonus
+
+- Let's calculate how much you earn from your office.
+  - You get 12,300 rupees as your monthly salary.
+  - You get a 20% bonus on your annual salary.
+  - How much money do you make per annum as a CTC?
+
+---
+
+- Task 03 Solution
+
+  ```js
+  let monthSalary=12300
+  let annualSalary=12300*12
+  let bonusAnnual=annualSalary*(20/100)
+  let annumCtc=annualSalary+bonusAnnual
+  console.log(annumCtc);
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 04 - Write a program for the Traffic Light Simulation
+
+- Red Light... Green Light... Let's Play!
+  - Create a color variable.
+  - Based on the color variable's value print in the console if a traveler needs to STOP or GO. The Red color is for STOP and the Green color is for GO.
+
+---
+
+- Task 04 Solution
+
+  ```js
+  let color="Green Light"
+  if(color=="Red Light"){
+      console.log(`Stop Traveler! It is ${color}`);
+  }else if(color=="Green Light"){
+      console.log(`GO Traveler! It is ${color}`);
+  }else{
+      console.log(`${color} not a valid color`);
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 05 - Create an Electricity Bill Calculator
+
+- Let's calculate how much you pay for electricity bills per month and annually.
+  - Create a units variable. Based on this value you will calculate the total electricity bill for a months.
+  - If each day you consume the units and each unit cost 150 rupees, how much will you be charged per month?
+  - If there is a 20% discount on the annual payment, how much will you be charged for an annual payment?
+
+---
+
+- Task 05 Solution
+
+  ```js
+  let units=5
+  let perUnitCost=150
+  let perMonthCost=(units*perUnitCost)*30
+  let annualCost=(perMonthCost*12)
+  let discount = annualCost*(20/100)
+  let discountedAnnualCost=annualCost - discount
+  console.log(perMonthCost);
+  console.log(discountedAnnualCost);
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 06 - Leap Year Checker
+
+- Is 2025 a Leap Year?
+  - Take year as input.
+  - Use the arithmetic operator and ternary operator to print if a year is a leap year or not.
+
+---
+
+- Task 06 Solution
+
+  ```js
+  let year = 2025
+  let result = year%4==0?"Leap Year":"Not Leap Year"
+  console.log(result);
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 07 - Max of Three Numbers
+
+- Find the max number from the lot.
+  - Take three numbers and assign them to variables p, q, and r.
+  - Now find the maximum of these three numbers using the comparison operators.
+
+---
+
+- Task 07 Solution
+
+  ```js
+  let p=5,q=1,r=4
+  if(p>q && p>r){
+      console.log(`${p} is maximum among ${q} & ${r}`);
+  }else if(q>p && q>r){
+      console.log(`${q} is maximum among ${p} & ${r}`);
+  }else{
+      console.log(`${r} is maximum among ${p} & ${q}`);
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 08 - Bitwise Doubling
+
+- A tricky one for you
+  - Create a variable count and assign a value, say, 5.
+  - Now use the Bitwise shift operator to make the number double.
+  - Print it on the console.
+
+---
+
+- Task 08 Solution
+
+  ```js
+  let count=5
+  // 5 = 101
+  // 10 = 1010
+  console.log(count<<1);
+  ```
 
 [⬆️ Go to Context](#context)
