@@ -60,6 +60,13 @@
       - [Task 06 - Leap Year Checker](#task-06---leap-year-checker)
       - [Task 07 - Max of Three Numbers](#task-07---max-of-three-numbers)
       - [Task 08 - Bitwise Doubling](#task-08---bitwise-doubling)
+  - [**Day 04 - MASTERING Control Flow in JavaScript With Quizzes**](#day-04---mastering-control-flow-in-javascript-with-quizzes)
+    - [The Control Flow](#the-control-flow)
+      - [Conditional Statements](#conditional-statements)
+      - [Looping Statements](#looping-statements)
+      - [Jump Statements](#jump-statements)
+      - [Exception Handling](#exception-handling)
+
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -1205,5 +1212,227 @@ It returns a **string** indicating the type.
   // 10 = 1010
   console.log(count<<1);
   ```
+
+[⬆️ Go to Context](#context)
+
+## **Day 04 - MASTERING Control Flow in JavaScript With Quizzes**
+
+### The Control Flow
+
+Control flow in JavaScript determines the **order** in which statements are executed.
+By default, JavaScript executes code **from top to bottom**, **left to right**, but control flow statements allow us to **change this order** based on conditions, loops, or function calls.
+
+- Types of Control Flow
+
+  | Type                                   | Purpose                | Examples                      |
+  | -------------------------------------- | ---------------------- | ----------------------------- |
+  | [Conditional](#conditional-statements) | Make decisions         | `if`, `switch`                |
+  | [Looping](#looping-statements)         | Repeat code            | `for`, `while`, `do...while`  |
+  | [Jump](#jump-statements)               | Control loop execution | `break`, `continue`, `return` |
+  | [Exception](#exception-handling)       | Handle runtime errors  | `try...catch`                 |
+
+---
+
+[⬆️ Go to Context](#context)
+
+#### Conditional Statements
+
+> Used to make decisions based on conditions
+
+- `if` Statement : Executes a block of code **if** a condition is true.
+
+  ```js
+  if (age >= 18) {
+    console.log("You can vote!");
+  }
+  ```
+
+- `if...else` Statement : Executes one block **if true**, another **if false**.
+
+  ```js
+  let catchingBus = false;
+  if (catchingBus) {
+      console.log("I will Reach home on time");
+  } else {
+      console.log("I will be late to reach");
+  }
+  ```
+
+- `if...else if...else` Ladder : Used when multiple conditions need to be checked.
+
+  ```js
+  if (marks >= 80) {
+    console.log("A+");
+  } else if (marks >= 60) {
+    console.log("A");
+  } else {
+    console.log("Fail");
+  }
+  ```
+
+- `switch` Statement : Simplifies checking multiple possible values of a variable.
+
+  ```js
+  switch (day) {
+    case 1:
+      console.log("Monday");
+      break;
+    case 2:
+      console.log("Tuesday");
+      break;
+    default:
+      console.log("Invalid day");
+  }
+  ```
+
+  - The `break` keyword stops execution once a match is found.
+  - The `default` case runs when no match is found.
+
+- Fall through
+
+  ```js
+  const city = "Dhaka";
+  switch (city) {
+      case "Dhaka":
+      case "Chittagong":
+      case "Khulna":
+      case "Rajshahi":
+          console.log("All these are in Bangladesh");
+          break;
+      case "New York":
+      default:
+          console.log("It is in USA");
+  }
+  ```
+
+---
+
+- if-else vs switch-case
+
+  | Feature                  | `if-else`                                   | `switch-case`                                 |
+  | ------------------------ | ------------------------------------------- | --------------------------------------------- |
+  | **Use case**             | Complex, logical, or range-based conditions | Simple value-based comparisons                |
+  | **Type of comparison**   | Can check ranges, conditions, or types      | Compares one value against constants          |
+  | **Comparison operator**  | Uses logical (`>`, `<`, `==`, `===`, etc.)  | Uses strict equality (`===`)                  |
+  | **Performance**          | Slower with many conditions                 | Faster with multiple discrete values          |
+  | **Readability**          | Becomes messy with many conditions          | More structured and cleaner                   |
+  | **Fall-through**         | Not applicable                              | Possible if `break` is missing                |
+  | **Data types supported** | Any expression or condition                 | Only discrete values (numbers, strings, etc.) |
+
+
+[⬆️ Go to Context](#context)
+
+#### Looping Statements
+
+> Used to execute a block of code **repeatedly** until a condition is met.
+
+- `for` Loop : Used when the number of iterations is known.
+
+  ```js
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  ```
+
+- `while` Loop : Used when the number of iterations is **unknown** but depends on a condition.
+
+  ```js
+  let i = 0;
+  while (i < 5) {
+    console.log(i);
+    i++;
+  }
+  ```
+
+- `do...while` Loop : Executes code **at least once**, then checks the condition.
+
+  ```js
+  let i = 0;
+  do {
+    console.log(i);
+    i++;
+  } while (i < 5);
+  ```
+
+- `for...of` Loop : Used to iterate over **iterable objects** like arrays.
+
+  ```js
+  const fruits = ["apple", "banana", "cherry"];
+  for (const fruit of fruits) {
+    console.log(fruit);
+  }
+  ```
+
+- `for...in` Loop : Used to iterate over **object properties**.
+
+  ```js
+  const person = { name: "John", age: 25 };
+  for (const key in person) {
+    console.log(key + ": " + person[key]);
+  }
+  ```
+
+---
+
+[⬆️ Go to Context](#context)
+
+#### Jump Statements
+
+> Used to alter the normal sequence of execution.
+
+- `break` : Exits a loop or `switch` immediately.
+
+  ```js
+  for (let i = 1; i <= 5; i++) {
+    if (i === 3) break;
+    console.log(i);
+  }
+  ```
+
+- `continue` : Skips the current iteration and moves to the next one.
+
+  ```js
+  for (let i = 1; i <= 5; i++) {
+    if (i === 3) continue;
+    console.log(i);
+  }
+  ```
+
+- `return` : Exits from a function and optionally returns a value.
+
+  ```js
+  function add(a, b) {
+    return a + b;
+  }
+  ```
+
+---
+
+[⬆️ Go to Context](#context)
+
+#### Exception Handling
+
+> Used to manage runtime errors gracefully.
+
+- `try...catch...finally`
+
+  ```js
+  try {
+    let result = riskyOperation();
+    console.log(result);
+  } catch (error) {
+    console.log("An error occurred:", error);
+  } finally {
+    console.log("Execution complete.");
+  }
+  ```
+
+  - `try`: Defines code to test.
+  - `catch`: Handles errors.
+  - `finally`: Executes code regardless of success or failure.
+
+> [!NOTE]
+>
+> - Always use braces `{}`, even for one-line statements.
 
 [⬆️ Go to Context](#context)
