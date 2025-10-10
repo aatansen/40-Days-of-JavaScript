@@ -1444,7 +1444,7 @@ By default, JavaScript executes code **from top to bottom**, **left to right**, 
 
 [⬆️ Go to Context](#context)
 
-### **Day 04 Tasks**
+### [**Day 04 Tasks**](./Day%2004%20-%20MASTERING%20Control%20Flow%20in%20JavaScript%20With%20Quizzes/Tasks/)
 
 #### Task 01 - What will be the output of this code snippet and why?
 
