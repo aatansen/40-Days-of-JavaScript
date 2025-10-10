@@ -1631,7 +1631,7 @@ Take the sides of a triangle as input and write a program to determine the trian
       console.log("Equilateral Triangle");
   }else if(side1===side2 || side1===side3 || side2===side3){
       console.log("Isosceles Triangle");
-  }else if(side1!==side2 || side1!==side3 || side2!==side3){
+  }else if(side1!==side2 && side1!==side3 && side2!==side3){
       console.log("Scalene Triangle");
   }else{
       console.log("Invalid values");
