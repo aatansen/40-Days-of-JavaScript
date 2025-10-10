@@ -66,6 +66,13 @@
       - [Looping Statements](#looping-statements)
       - [Jump Statements](#jump-statements)
       - [Exception Handling](#exception-handling)
+    - [**Day 04 Tasks**](#day-04-tasks)
+      - [Task 01 - What will be the output of this code snippet and why?](#task-01---what-will-be-the-output-of-this-code-snippet-and-why)
+      - [Task 02 - Build an ATM Cash Withdrawal System](#task-02---build-an-atm-cash-withdrawal-system)
+      - [Task 03 - Build a Calculator with switch-case](#task-03---build-a-calculator-with-switch-case)
+      - [Task 04 - Pay for your movie ticket](#task-04---pay-for-your-movie-ticket)
+      - [Task 05 - Horoscope Sign Checker](#task-05---horoscope-sign-checker)
+      - [Task 06 - Which Triangle?](#task-06---which-triangle)
 
 
 # **Module 1 - Getting Started with JavaScript**
@@ -1434,5 +1441,201 @@ By default, JavaScript executes code **from top to bottom**, **left to right**, 
 > [!NOTE]
 >
 > - Always use braces `{}`, even for one-line statements.
+
+[⬆️ Go to Context](#context)
+
+### **Day 04 Tasks**
+
+#### Task 01 - What will be the output of this code snippet and why?
+
+  ```js
+  let day = "Monday";
+
+  switch (day) {
+    case "monday":
+        console.log("It's the start of the week.");
+        break;
+    default:
+        console.log("It's a normal day.");
+  }
+  ```
+
+---
+
+- Task 01 Solution
+  - Output is "It's a normal day." Cause it is case sensitive where we can see day = "Monday" but in the case it is "monday" which does not match so default output "It's a normal day."
+
+[⬆️ Go to Context](#context)
+
+#### Task 02 - Build an ATM Cash Withdrawal System
+
+- Rajan goes to the Axis bank ATM. He enters an amount to withdraw. The ATM only allows multiples of 100. Print "Withdrawal successful" if valid, otherwise print "Invalid amount".
+
+---
+
+- Task 02 Solution
+
+  ```js
+  let amount = 1500
+  if(amount%100==0){
+      console.log("Withdrawal successful");
+  }else{
+      console.log("Invalid amount");
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 03 - Build a Calculator with switch-case
+
+- Write a simple calculator that takes an operator (+, -, , /, %) as input, and performs the operation on two numbers. Print the output on the console.
+
+---
+
+- Task 03 Solution
+
+  ```js
+  let operator = "%"
+  switch(operator){
+      case "+":
+          console.log(5+2);
+          break
+      case "-":
+          console.log(5-2);
+          break
+      case "/":
+          console.log(5/2);
+          break
+      case "%":
+          console.log(5%2);
+          break
+      default:
+          console.log("Invalid operator");
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 04 - Pay for your movie ticket
+
+Imagine, the INOX charges ticket prices based on age
+
+- Children (<18 years): $3
+- Adults (18 - 60 years): $10
+- Seniors (60+ years): $8
+
+Write a program that prints the ticket price based on the person’s age.
+
+---
+
+- Task 04 Solution
+
+  ```js
+  let age=61
+  if(age<18){
+      console.log(`Ticket price for children age ${age} is $3`);
+  }else if(18<=age && age<=60){
+      console.log(`Ticket price for Adults age ${age} is $10`);
+  }else if(age>60){
+      console.log(`Ticket price for Seniors age ${age} is $8`);
+  }else{
+      console.log("Invalid age");
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 05 - Horoscope Sign Checker
+
+- Write a program that prints the zodiac sign(Aries, Taurus, Gemini, etc.) based on a person’s birth month. Make it month bases, not date based. Like March and April born are Aries, April and May born are Taurus, and so on. Do not use if-else.
+
+---
+
+- Task 05 Solution
+
+  ```js
+  let month = "October"
+  switch(month){
+      case "January":
+      case "February":
+          console.log("Aquarius");
+          break
+      case "February":
+      case "March":
+          console.log("Pisces");
+          break
+      case "March":
+      case "April":
+          console.log("Aries");
+          break
+      case "April":
+      case "May":
+          console.log("Taurus");
+          break
+      case "May":
+      case "June":
+          console.log("Gemini");
+          break
+      case "June":
+      case "July":
+          console.log("Cancer");
+          break
+      case "July":
+      case "August":
+          console.log("Leo");
+          break
+      case "August":
+      case "September":
+          console.log("Virgo");
+          break
+      case "September":
+      case "October":
+          console.log("Libra");
+          break
+      case "October":
+      case "November":
+          console.log("Scorpio");
+          break
+      case "November":
+      case "December":
+          console.log("Sagittarius");
+          break
+      case "December":
+      case "January":
+          console.log("Capricorn");
+          break
+      default:
+          console.log("Invalid month");
+  }
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 06 - Which Triangle?
+
+A triangle has 3 sides. A Triangle type is determined by its sides
+
+- All sides equal is called, *Equilateral Triangle*.
+- Two sides equal is called, *Isosceles Triangle*.
+- All sides different is called, *Scalene Triangle*.
+
+Take the sides of a triangle as input and write a program to determine the triangle type. Change the inputs every time manually to see if the output changes correctly.
+
+---
+
+- Task 06 Solution
+
+  ```js
+  let side1=4,side2=6,side3=7
+  if(side1===side2 && side1===side3 && side2===side3){
+      console.log("Equilateral Triangle");
+  }else if(side1===side2 || side1===side3 || side2===side3){
+      console.log("Isosceles Triangle");
+  }else if(side1!==side2 || side1!==side3 || side2!==side3){
+      console.log("Scalene Triangle");
+  }else{
+      console.log("Invalid values");
+  }
+  ```
 
 [⬆️ Go to Context](#context)
