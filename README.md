@@ -73,6 +73,19 @@
       - [Task 04 - Pay for your movie ticket](#task-04---pay-for-your-movie-ticket)
       - [Task 05 - Horoscope Sign Checker](#task-05---horoscope-sign-checker)
       - [Task 06 - Which Triangle?](#task-06---which-triangle)
+  - [**Day 05 - MASTERING Loops and Iterations in JavaScript With Quizzes**](#day-05---mastering-loops-and-iterations-in-javascript-with-quizzes)
+    - [for Loop](#for-loop)
+      - [for loop flowchart](#for-loop-flowchart)
+      - [for loop structure](#for-loop-structure)
+      - [for loop code example](#for-loop-code-example)
+      - [Nested Loop](#nested-loop)
+    - [Break and Continue](#break-and-continue)
+    - [Multiple Counters for single loop](#multiple-counters-for-single-loop)
+    - [while Loop](#while-loop)
+      - [while Loop Flowchart](#while-loop-flowchart)
+    - [The do-while Loop](#the-do-while-loop)
+      - [do-while Loop Flowchart](#do-while-loop-flowchart)
+    - [Infinite Loop](#infinite-loop)
 
 
 # **Module 1 - Getting Started with JavaScript**
@@ -1637,5 +1650,179 @@ Take the sides of a triangle as input and write a program to determine the trian
       console.log("Invalid values");
   }
   ```
+
+[⬆️ Go to Context](#context)
+
+## **Day 05 - MASTERING Loops and Iterations in JavaScript With Quizzes**
+
+### for Loop
+
+A for loop is a control structure that allows to repeat a block of code a specific number of times.
+
+[⬆️ Go to Context](#context)
+
+#### for loop flowchart
+
+  ```mermaid
+  flowchart TD
+      A([Start]) --> B[Initialize counter: i = 0]
+      B --> C{Condition true? i < limit}
+      C -->|No| D([End Loop])
+      C -->|Yes| E[Execute loop body]
+      E --> F[Increment counter: i = i + 1]
+      F --> C
+      D --> G([End])
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### for loop structure
+
+```js
+for(initialization;condition;update){
+
+}
+```
+
+[⬆️ Go to Context](#context)
+
+#### for loop code example
+
+  ```js
+  for(let count=1;count<=5;count++){
+      console.log("Iteration/Loop", count);
+  }
+
+  // Addition of even numbers between 1 to 100
+  let sum = 0;
+  for (let i = 1; i<= 100; i++) {
+      if (i % 2 === 0) {
+          //console.log("i", i)
+          //sum = sum + i;
+          sum += i;
+      }
+  }
+  console.log("Sum is", sum);
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Nested Loop
+
+```js
+// Nested Loop
+for(let i =1; i<=3; i++) {
+    for(let j=1; j<=3; j++) {
+        console.log("Row", i, "Col", j)
+    }
+}
+```
+
+[⬆️ Go to Context](#context)
+
+### Break and Continue
+
+```js
+// Break
+for (let i=1; i<=5; i++) {
+    if (i===3) break;
+    console.log(i)
+}
+
+// Continue
+for (let i=1; i<=5; i++) {
+    if (i===3) continue;
+    console.log(i)
+}
+```
+
+[⬆️ Go to Context](#context)
+
+### Multiple Counters for single loop
+
+```js
+for(let i=1, j=10; i<=10 && j>=1 ; i++, j--) {
+    console.log(i, j);
+}
+```
+
+[⬆️ Go to Context](#context)
+
+### while Loop
+
+A while loop runs as long as a given condition is true. It’s best when we don’t know in advance how many iterations are needed.
+
+[⬆️ Go to Context](#context)
+
+#### while Loop Flowchart
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Initialize counter: i = 0]
+    B --> C{Condition true? i < limit}
+    C -->|No| D([End Loop])
+    C -->|Yes| E[Execute loop body]
+    E --> F[Increment counter: i = i + 1]
+    F --> C
+    D --> G([End])
+```
+
+```js
+let counter = 1;
+while(counter <=5) {
+    console.log(counter);
+    counter++;
+}
+```
+
+[⬆️ Go to Context](#context)
+
+### The do-while Loop
+
+A do-while loop ensures that the code executes at least once before checking the condition.
+
+[⬆️ Go to Context](#context)
+
+#### do-while Loop Flowchart
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Initialize counter: i = 0]
+    B --> C[Execute loop body]
+    C --> D[Increment counter: i = i + 1]
+    D --> E{Condition true? i < limit}
+    E -->|Yes| C
+    E -->|No| F([End])
+```
+
+```js
+let num = 1;
+do {
+    console.log(num);
+    num++;
+} while(num <=5)
+```
+
+[⬆️ Go to Context](#context)
+
+### Infinite Loop
+
+```js
+for(;;){
+    console.log("I am looping forever!!!")
+}
+```
+
+```js
+while(true) {
+  console.log("I am looping forever!!!")
+}
+```
+
+```js
+do {
+  console.log("I am looping forever!!!")
+} while(true)
+```
 
 [⬆️ Go to Context](#context)
