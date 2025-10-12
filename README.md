@@ -93,7 +93,20 @@
       - [Task 04 - Skipping Multiples of 3](#task-04---skipping-multiples-of-3)
       - [Task 05 - Reverse Digits of a Number (Using while loop)](#task-05---reverse-digits-of-a-number-using-while-loop)
       - [Task 06 - Write your understanding on the differences between for, while, and do-while loop. Create their flow charts](#task-06---write-your-understanding-on-the-differences-between-for-while-and-do-while-loop-create-their-flow-charts)
-
+  - [**Day 06 - MASTERING Functions in JavaScript With Quizzes**](#day-06---mastering-functions-in-javascript-with-quizzes)
+    - [What is Function](#what-is-function)
+    - [Function as Expression](#function-as-expression)
+    - [Parameters, Arguments \& Return Statement](#parameters-arguments--return-statement)
+    - [Default Parameters](#default-parameters)
+    - [Rest Parameter](#rest-parameter)
+    - [Nested Function](#nested-function)
+    - [Callback Function](#callback-function)
+    - [Pure function](#pure-function)
+    - [Higher Order Function (HOF)](#higher-order-function-hof)
+    - [Arrow Function](#arrow-function)
+    - [Immediately Invoked Function Expression (IIFE)](#immediately-invoked-function-expression-iife)
+    - [Call Stack](#call-stack)
+    - [Recursion](#recursion)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -1988,5 +2001,333 @@ Example:
     - [for loop Flowchart](#for-loop-flowchart)
     - [while loop Flowchart](#while-loop-flowchart)
     - [do-while Flowchart](#do-while-loop-flowchart)
+
+[⬆️ Go to Context](#context)
+
+## **Day 06 - MASTERING Functions in JavaScript With Quizzes**
+
+### What is Function
+
+A function is a block of reusable code designed to perform a specific task.
+
+![JS Function](https://i.imgur.com/esqC0m4.png)
+
+```js
+function printThis(){
+    console.log("I am a function");
+}
+printThis()
+```
+
+[⬆️ Go to Context](#context)
+
+### Function as Expression
+
+```js
+let printMe = function() {
+    console.log("Print Me")
+}
+printMe();
+```
+
+[⬆️ Go to Context](#context)
+
+### Parameters, Arguments & Return Statement
+
+```js
+// Parameters & Arguments
+function sum(a, b) {
+    const result = a + b;
+    //console.log(result);
+    return result;
+}
+
+let result = sum(10, 9);
+console.log(result)
+
+function double(x) {
+    return 2*x;
+}
+console.log(double(result));
+```
+
+[⬆️ Go to Context](#context)
+
+### Default Parameters
+
+```js
+function calc(a=0, b=0) {
+    return (2 * (a + b ))
+}
+const resVar = calc()
+console.log(resVar);
+```
+
+### Rest Parameter
+
+```js
+// Rest Parameter
+function calculateThis(x, y, ...rest){
+    console.log(x, y, rest)
+}
+calculateThis(1,2,3,4,5,6,7,8,9)
+```
+
+[⬆️ Go to Context](#context)
+
+### Nested Function
+
+```js
+// Nested Function
+function outer() {
+    console.log("Outer");
+
+    return function inner() {
+        console.log("inner")
+    }
+    //inner();
+}
+let retFunc = outer();
+console.log(retFunc());
+```
+
+[⬆️ Go to Context](#context)
+
+### Callback Function
+
+```js
+// callback function
+const toCallBuz  = false;
+function foo(func) {
+    console.log("foo");
+    if (toCallBuz){
+        func();
+    }
+}
+const buz = function() {
+    console.log("buz")
+}
+foo(buz);
+```
+
+- How callback work here
+  - **`buz`** is a **callback function** (a function passed as an argument to another function).
+  - **`foo`** is the **main function** that *receives* the callback (`func`) and *decides when or whether* to call it.
+  - Inside `foo`, it prints `"foo"` first.
+  - Then it checks the condition `if (toCallBuz)`:
+
+    - If `toCallBuz` is **true**, it will call the callback (`func()`), which prints `"buz"`.
+    - If `toCallBuz` is **false**, the callback is **not called**, so `"buz"` will not appear.
+  - In this code, `toCallBuz = false`, so only `"foo"` is printed.
+
+---
+
+- Who Calls the Callback Function?
+
+  - The **main function (`foo`)** calls the callback function (`buz`),
+    **but only** when the condition (`toCallBuz === true`) is met.
+  - The callback is **not called automatically** — it’s executed **based on logic or conditions inside** the main function.
+
+[⬆️ Go to Context](#context)
+
+### Pure function
+
+- A pure function is a function that
+  - Always returns the same output for the same input.
+  - Does not change or depend on anything outside itself (no side effects).
+
+  ```js
+  // Impure function
+  let greetingMsg = "Hola "
+  function greeting(name) {
+      return greetingMsg + name;
+  }
+  console.log(greeting("tansen"));
+  console.log(greeting("tansen"));
+
+  greetingMsg = "Hello "
+  console.log(greeting("tansen"));
+  console.log(greeting("tansen"));
+  console.log(greeting("tansen"));
+  ```
+
+- Why the above function is not pure
+
+- The function `greeting(name)` depends on the external variable `greetingMsg`.
+- When `greetingMsg` changes from `"Hola "` to `"Hello "`, the same input `("tansen")` produces different outputs.
+- Hence, it’s impure — its result depends on an external state.
+
+- Pure Function
+
+  ```js
+  function greeting(name, message) {
+      return message + name;
+  }
+  console.log(greeting("tansen", "Hola "));
+  console.log(greeting("tansen", "Hola "));
+  ```
+
+[⬆️ Go to Context](#context)
+
+### Higher Order Function (HOF)
+
+- A Higher-Order Function (HOF) is a function that either:
+  - Takes another function as an argument, or
+  - Returns a function as its result.
+
+  ```js
+  // Higher Order Function
+  function getCamera(camera) {
+      camera();
+  }
+  getCamera(function() {
+      console.log("Sony")
+  })
+
+  function returnFunc(param) {
+      return function() {
+          if (param === 1) {
+              console.log("Hello")
+          }
+
+      }
+  }
+  const retFun = returnFunc(3);
+  retFun();
+  ```
+
+  - getCamera() → Higher-order function that takes another function.
+  - returnFunc() → Higher-order function that returns another function.
+  - HOFs are widely used in
+    - Event handling
+    - Callbacks
+    - Functional programming (like map, filter, reduce)
+
+[⬆️ Go to Context](#context)
+
+### Arrow Function
+
+```js
+// Arrow Function
+let greetMe = (greetingMsg) => {
+    //
+    //
+    return greetingMsg + " great"
+}
+console.log(greetMe("Hola"));
+
+// in single line
+let greatMe1=(greetingMsg)=>greetingMsg+" Tansen"
+console.log(greatMe1("Hello"));
+```
+
+[⬆️ Go to Context](#context)
+
+### Immediately Invoked Function Expression (IIFE)
+
+```js
+// IIFE(Immediately Invoked Function Expression)
+(function(count){
+    console.log("IIFE", count)
+})(1)
+```
+
+[⬆️ Go to Context](#context)
+
+### Call Stack
+
+- The **Call Stack** is a special data structure used by JavaScript to **keep track of function execution** (which function is running and which one should run next).
+- It follows the **LIFO (Last In, First Out)** principle.
+  - The **last function** that is called is the **first one to finish** and get removed from the stack.
+- When a function is called, it is **pushed** onto the stack.
+- When the function completes, it is **popped** off the stack.
+
+- Visualize the call stack
+
+  ```mermaid
+  graph TB
+      subgraph "Call Stack (LIFO - Last In, First Out)"
+          direction TB
+          S1[" "]
+          S2[" "]
+          S3[" "]
+          S4["main()"]
+
+          style S1 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style S2 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style S3 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style S4 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#000
+      end
+
+      subgraph "Step 1: Function Calls"
+          direction LR
+          C1["functionA() called"] -->|PUSH| C2["functionB() called"] -->|PUSH| C3["functionC() called"]
+      end
+
+      subgraph "Call Stack Growth"
+          direction TB
+          G1["functionC()"]
+          G2["functionB()"]
+          G3["functionA()"]
+          G4["main()"]
+
+          G1 -.->|Last In| G2
+          G2 -.-> G3
+          G3 -.-> G4
+
+          style G1 fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#000
+          style G2 fill:#ffd93d,stroke:#333,stroke-width:2px,color:#000
+          style G3 fill:#6bcf7f,stroke:#333,stroke-width:2px,color:#000
+          style G4 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#000
+      end
+
+      subgraph "Step 2: Function Completion"
+          direction LR
+          E1["functionC() completes"] -->|POP| E2["functionB() completes"] -->|POP| E3["functionA() completes"]
+      end
+
+      subgraph "Call Stack Shrinks"
+          direction TB
+          SH1[" "]
+          SH2[" "]
+          SH3[" "]
+          SH4["main()"]
+
+          SH1 -.->|First Out| SH2
+
+          style SH1 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style SH2 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style SH3 fill:#f0f0f0,stroke:#ccc,stroke-dasharray: 5 5
+          style SH4 fill:#4CAF50,stroke:#333,stroke-width:2px,color:#000
+      end
+
+      C3 -.->|Builds| G1
+      E1 -.->|Returns to| SH4
+  ```
+
+[⬆️ Go to Context](#context)
+
+### Recursion
+
+- **Recursion** is when a function **calls itself** to solve a smaller part of a problem.
+- It continues calling itself **until** a **base condition** (stopping point) is met.
+- Without a base condition, recursion will run forever → cause **stack overflow** error.
+
+```js
+// Recursion
+/*function foo() {
+    foo();
+}*/
+
+function fetchWater(count) {
+    console.log("Fetching Water...", count);
+    if (count === 0) {
+        console.log("No more water is left to fetch...");
+        return;
+    }
+    fetchWater(count - 1)
+}
+fetchWater(5)
+```
 
 [⬆️ Go to Context](#context)
