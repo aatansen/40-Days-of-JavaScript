@@ -107,6 +107,17 @@
     - [Immediately Invoked Function Expression (IIFE)](#immediately-invoked-function-expression-iife)
     - [Call Stack](#call-stack)
     - [Recursion](#recursion)
+    - [**Day 06 Tasks**](#day-06-tasks)
+      - [Task 01 - Write a Function to Convert Celsius to Fahrenheit](#task-01---write-a-function-to-convert-celsius-to-fahrenheit)
+      - [Task 02 - Create a Function to Find the Maximum of Two Numbers](#task-02---create-a-function-to-find-the-maximum-of-two-numbers)
+      - [Task 03 - Function to Check if a String is a Palindrome](#task-03---function-to-check-if-a-string-is-a-palindrome)
+      - [Task 04 - Write a Function to Find Factorial of a Number](#task-04---write-a-function-to-find-factorial-of-a-number)
+      - [Task 05 - Write a function to Count Vowels in a String](#task-05---write-a-function-to-count-vowels-in-a-string)
+      - [Task 06 - Write a Function to Capitalize the First Letter of Each Word in a Sentence](#task-06---write-a-function-to-capitalize-the-first-letter-of-each-word-in-a-sentence)
+      - [Task 07 - Use an IIFE to Print “Hello, JavaScript!”](#task-07---use-an-iife-to-print-hello-javascript)
+      - [Task 08 - Create a Simple Callback Function](#task-08---create-a-simple-callback-function)
+      - [Task 09 - Create Call Stack Execution Diagram for this flow](#task-09---create-call-stack-execution-diagram-for-this-flow)
+      - [Task 10 - Create Call Stack Execution Diagram for this flow](#task-10---create-call-stack-execution-diagram-for-this-flow)
 
 # **Module 1 - Getting Started with JavaScript**
 
@@ -2313,21 +2324,252 @@ console.log(greatMe1("Hello"));
 - It continues calling itself **until** a **base condition** (stopping point) is met.
 - Without a base condition, recursion will run forever → cause **stack overflow** error.
 
-```js
-// Recursion
-/*function foo() {
-    foo();
-}*/
+  ```js
+  // Recursion
+  /*function foo() {
+      foo();
+  }*/
 
-function fetchWater(count) {
-    console.log("Fetching Water...", count);
-    if (count === 0) {
-        console.log("No more water is left to fetch...");
-        return;
-    }
-    fetchWater(count - 1)
+  function fetchWater(count) {
+      console.log("Fetching Water...", count);
+      if (count === 0) {
+          console.log("No more water is left to fetch...");
+          return;
+      }
+      fetchWater(count - 1)
+  }
+  fetchWater(5)
+  ```
+
+[⬆️ Go to Context](#context)
+
+### [**Day 06 Tasks**](./Day%2006%20-%20MASTERING%20Functions%20in%20JavaScript%20With%20Quizzes/Tasks/)
+
+#### Task 01 - Write a Function to Convert Celsius to Fahrenheit
+
+- Create a function celsiusToFahrenheit(celsius) that converts a temperature from Celsius to Fahrenheit.
+- Formula: `(Celsius * 9/5) + 32 = Fahrenheit`
+
+---
+
+- Task 01 Solution
+
+  ```js
+  function celsiusToFahrenheit(celsius){
+      let fahrenheit = (celsius * 9/5) + 32
+      return fahrenheit
+  }
+  console.log(celsiusToFahrenheit(5));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 02 - Create a Function to Find the Maximum of Two Numbers
+
+- Write a function findMax(num1, num2) that returns the larger of the two numbers.
+- It should work for negative numbers as well.
+
+---
+
+- Task 02 Solution
+
+  ```js
+  function findMax(num1,num2){
+      if (num1>num2){
+          return num1
+      }else{
+          return num2
+      }
+  }
+  console.log(findMax(10,-10));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 03 - Function to Check if a String is a Palindrome
+
+- Create a function isPalindrome(str) that checks if a given string is a palindrome (reads the same forward and backward).
+- You can not use any string function that we have not learned in the series so far.
+
+---
+
+- Task 03 Solution
+
+  ```js
+  function isPalindrome(str) {
+      let rev_str =""
+      for(let i=str.length-1;i>=0;i--){
+          rev_str+=str[i]
+      }
+      if(str===rev_str){
+          return `${str} is a palindrome`
+      }else{
+          return `${str} is not a palindrome`
+      }
+  }
+  console.log(isPalindrome("bcb"));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 04 - Write a Function to Find Factorial of a Number
+
+- Create a function factorial(n) that returns the factorial of n. Example `5! = 5 * 4 * 3 * 2 * 1`
+
+---
+
+- Task 04 Solution
+
+  ```js
+  // using for loop
+  function factorial(n){
+      for(let i=n;i>0;i--){
+          return i
+      }
+  }
+  console.log(factorial(4));
+
+  // using recursion
+  function factorial(n){
+      if(n==0 || n==1){
+          return 1
+      }else{
+          return n* factorial(n-1)
+      }
+  }
+  console.log(factorial(4));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 05 - Write a function to Count Vowels in a String
+
+- Write a function countVowels(str) that counts the number of vowels (a, e, i, o, u) in a given string.
+
+---
+
+- Task 05 Solution
+
+  ```js
+  function countVowels(str){
+      let count=0
+      str=str.toLowerCase()
+      for(let i=0;i<str.length;i++){
+          // console.log(str[i]);
+          if(str[i]==='a' || str[i]==='e' || str[i]==='i' || str[i]==='o' || str[i]==='u'){
+              count+=1
+          }
+      }
+      return count
+  }
+  console.log(countVowels("I live in Dhaka"));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 06 - Write a Function to Capitalize the First Letter of Each Word in a Sentence
+
+- Write a function capitalizeWords(sentence) that takes a sentence and capitalizes the first letter of each word. You can use the toUpperCase() method of string to convert the lowercase to uppercase.
+
+---
+
+- Task 06 Solution
+
+  ```js
+  function capitalizeWords(sentence){
+      let char="",result="",capNext=true
+      for(let i =0;i<sentence.length;i++){
+          char=sentence[i]
+          if(char==" "){
+              result+=" "
+              capNext=true
+          }else{
+              if(capNext){
+                  result+=char.toUpperCase()
+                  capNext=false
+              }else{
+                  result+=char
+              }
+          }
+      }
+      return result
+  }
+  console.log(capitalizeWords("dhaka is the capital of bangladesh"));
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 07 - Use an IIFE to Print “Hello, JavaScript!”
+
+- Write an IIFE that prints "Hello, JavaScript!" to the console. Here the Second word must be supplied using parameter and argument.
+
+---
+
+- Task 07 Solution
+
+  ```js
+  console.log("\n");
+  console.log("**Task 07 Solution**");
+  (function(word){
+      console.log(`Hello, ${word}!`);
+  })("JavaScript")
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 08 - Create a Simple Callback Function
+
+- Write a function greet(name, callback), where callback prints a message using the name parameter.
+
+---
+
+- Task 08 Solution
+
+  ```js
+  console.log("\n");
+  console.log("**Task 08 Solution**");
+  function greet(name, callback){
+      callback(name)
+  }
+  function buzzCall(name){
+      console.log(`Hello, ${name}`);
+  }
+  greet("Tansen",buzzCall)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Task 09 - Create Call Stack Execution Diagram for this flow
+
+```js
+function f1() {}
+function f2() {
+    f1();
 }
-fetchWater(5)
+f2();
 ```
+
+---
+
+- Task 09 Solution
+  ![diagram](https://i.imgur.com/dcqYYGK.gif)
+
+[⬆️ Go to Context](#context)
+
+#### Task 10 - Create Call Stack Execution Diagram for this flow
+
+```js
+function f1() {}
+function f2() {}
+function f3() {
+    f1();
+}
+f2();
+f3();
+f1();
+```
+
+- Task 10 Solution
+  ![diagram](https://i.imgur.com/Jduw9bP.gif)
 
 [⬆️ Go to Context](#context)
